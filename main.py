@@ -25,7 +25,8 @@ def main():
     tabControl.pack(expand=1, fill = 'both')
     ttk.Label(tab1, text="Meternome").grid(column=0, row=0, padx=30, pady=30)
     ttk.Label(tab2, text="File Organizer").grid(column=0, row=0, padx=30, pady=30)
-
+    objectMeternome = meternome.Meternome(120)
+    B = tk.Button(tab1, text ="Meternome", command = objectMeternome.meternomeClick())
     root.mainloop()
     
 
