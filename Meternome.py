@@ -5,7 +5,7 @@ import simpleaudio, time
 class Meternome:
     
 
-    def __init__(self,app, beats_per_minute):
+    def __init__(self, beats_per_minute):
         self.beats_per_min = beats_per_minute
         self.accent_note = 1
         self.beats_per_beat = 1
