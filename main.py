@@ -2,6 +2,8 @@ from appJar import gui
 from screeninfo import get_monitors
 from colour import Color
 
+from fileOrganize import *
+
 def main():
     height = 0
     width = 0
@@ -30,9 +32,11 @@ def main():
     app.addLabel("l4", "Tab 4 Label")
     app.stopTab()
     app.stopTabbedFrame()
+
     app.go()
 
 
 
 if __name__ == "__main__":
     main()
+
