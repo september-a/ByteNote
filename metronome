@@ -1,7 +1,0 @@
-class Metronome:
-    def __init__(self,app,t=60):
-        tempo = t
-        app.addCanvas("c1")
-    
-    def update():
-        pass
