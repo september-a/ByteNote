@@ -3,14 +3,14 @@ from screeninfo import get_monitors
 from colour import Color
 
 from fileOrganize import *
-
+app = gui()
 def main():
     height = 0
     width = 0
     for m in get_monitors():
         height = int(m.height * .8)
         width = int(m.width * .8)
-    app = gui()
+    
     app.setSize(width, height)
 
     app.startTabbedFrame("TabbedFrame")
@@ -30,15 +30,25 @@ def main():
 
     app.startTab("File Save")
     app.addLabel("l4", "Tab 4 Label")
-    app.addButton("Create Project", createProject(app))
-    
-    app.stopTab()
-    app.stopTabbedFrame()
 
+    app.addButton("Create Project", launch)
+
+    app.startSubWindow("one", modal=True)
+    app.addLabel("l1", "SubWindow One")
+    app.stopSubWindow()
+
+
+
+    
+   
+    
     app.go()
 
-def createProject(app):
-    app.stringBox("Create Project", "Enter Name")
+
+def launch(win):
+    app.showSubWindow(win)
+    app.go(startWindow="one")
+
 
 if __name__ == "__main__":
     main()
