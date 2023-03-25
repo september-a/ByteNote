@@ -1,6 +1,9 @@
-from appJar import gui
+import tkinter as tk
+from tkinter import *
+from tkinter import ttk
 from screeninfo import get_monitors
 from colour import Color
+import meternome
 
 from fileOrganize import *
 
@@ -10,35 +13,22 @@ def main():
     for m in get_monitors():
         height = int(m.height * .8)
         width = int(m.width * .8)
-    app = gui()
-    app.setSize(width, height)
 
-    app.startTabbedFrame("TabbedFrame")
-    app.startTab("Metronome")
-    app.addCanvas("c1")
-    app.addCanvasOval("c1", int(height/2)+100, int(width/5), 200, 200, fill="black", outline="black", width=3)
-    app.addCanvasText("c1", 10, 10,"Help")
-    app.stopTab()
-
-    app.startTab("Pitch Generator")
-    app.addLabel("l2", "Tab 2 Label")
-    app.stopTab()
-
-    app.startTab("Tuner")
-    app.addLabel("l3", "Tab 3 Label")
-    app.stopTab()
-
-    app.startTab("File Save")
-    app.addLabel("l4", "Tab 4 Label")
-    app.addButton("Create Project", createProject(app))
     
-    app.stopTab()
-    app.stopTabbedFrame()
+    root = tk.Tk()
+    root.title("Tab Widget")
+    tabControl = ttk.Notebook(root)
+    tab1 = ttk.Frame(tabControl)
+    tab2 = ttk.Frame(tabControl)
+    tabControl.add(tab1, text='Tab1')
+    tabControl.add(tab2, text='Tab 2')
+    tabControl.pack(expand=1, fill = 'both')
+    ttk.Label(tab1, text="Meternome").grid(column=0, row=0, padx=30, pady=30)
+    ttk.Label(tab2, text="File Organizer").grid(column=0, row=0, padx=30, pady=30)
 
-    app.go()
+    root.mainloop()
+    
 
-def createProject(app):
-    app.stringBox("Create Project", "Enter Name")
 
 if __name__ == "__main__":
     main()
