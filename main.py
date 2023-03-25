@@ -30,13 +30,15 @@ def main():
 
     app.startTab("File Save")
     app.addLabel("l4", "Tab 4 Label")
-    app.addButton("Add Project", app.openBox)
+    app.addButton("Create Project", createProject(app))
+    
     app.stopTab()
     app.stopTabbedFrame()
 
     app.go()
 
-
+def createProject(app):
+    app.stringBox("Create Project", "Enter Name")
 
 if __name__ == "__main__":
     main()
