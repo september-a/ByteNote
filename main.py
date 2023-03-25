@@ -13,6 +13,7 @@ def main():
     for m in get_monitors():
         height = int(m.height * .8)
         width = int(m.width * .8)
+
     
     root = tk.Tk()
     root.title("Tab Widget")
@@ -27,6 +28,7 @@ def main():
 
     root.mainloop()
     
+
 
 if __name__ == "__main__":
     main()
