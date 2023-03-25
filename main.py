@@ -30,6 +30,7 @@ def main():
 
     app.startTab("File Save")
     app.addLabel("l4", "Tab 4 Label")
+    app.addButton("Add Project", app.openBox)
     app.stopTab()
     app.stopTabbedFrame()
 
